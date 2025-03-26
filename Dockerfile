@@ -7,7 +7,6 @@ WORKDIR /app
 EXPOSE 7070
 EXPOSE 7071
 
-ENV ASPNETCORE_URLS="http://localhost:5001;https://localhost:5002"
 # Ten etap służy do kompilowania projektu usługi
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
