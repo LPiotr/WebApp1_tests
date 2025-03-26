@@ -1,0 +1,28 @@
+﻿@page
+@model WebApp1.Pages.OsobaModel
+
+@{
+    ViewData["Title"] = "Osoba";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var osoba in Model.Osoby)
+        {
+            <tr>
+                <td>@osoba.Id</td>
+                <td>@osoba.Imie</td>
+                <td>@osoba.Nazwisko</td>
+            </tr>
+        }
+    </tbody>
+</table>
