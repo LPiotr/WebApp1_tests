@@ -7,7 +7,7 @@ WORKDIR /app
 EXPOSE 7070
 EXPOSE 7071
 
-
+ENV ASPNETCORE_URLS="http://localhost:5001;https://localhost:5002"
 # Ten etap służy do kompilowania projektu usługi
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
@@ -25,6 +25,6 @@ RUN dotnet publish "./WebApp1.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p
 
 # Ten etap jest używany w środowisku produkcyjnym lub w przypadku uruchamiania z programu VS w trybie regularnym (domyślnie, gdy nie jest używana konfiguracja debugowania)
 FROM base AS final
-WORKDIR /app
+WORKDIR /appFen
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "WebApp1.dll"]
